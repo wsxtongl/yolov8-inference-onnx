@@ -1,1 +1,1 @@
-# yolov8-inference-with-onnx
+# yolov8-inference-onnx
