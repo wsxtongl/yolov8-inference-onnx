@@ -140,7 +140,7 @@ while True:
 
     # outputs = np.array([cv2.transpose(outputs[0])])
     scores = np.max(predictions[:, 4:], axis=1)
-    predictions = predictions[scores > 0.35, :]
+    predictions = predictions[scores > 0.25, :]
     scores = scores[scores > 0.25]
 
     # Get the class with the highest confidence
