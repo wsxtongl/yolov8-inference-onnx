@@ -172,7 +172,7 @@ while True:
     if shape[::-1] != new_unpad:  # resize
 
         img = cv2.resize(img, new_unpad, interpolation=cv2.INTER_LINEAR)
-    # print(shape)
+    
     top, bottom = int(round(dh - 0.1)), int(round(dh + 0.1))
     left, right = int(round(dw - 0.1)), int(round(dw + 0.1))
 
@@ -227,8 +227,6 @@ while True:
         box = boxes[index]
         box[2] = box[0] + box[2]
         box[3] = box[1] + box[3]
-        # shape = frame.shape
-        # print(shape)
         box_rect = box.copy()
         box_result = scale_boxes(blob.shape[2:], box_rect, shape).round()
         mask_pred = mask_predictions[index]
@@ -257,8 +255,8 @@ while True:
     frame = cv2.addWeighted(mask_img, 0.3, frame, 1 - 0.3, 0)
 
     end = time.time()
-    # # print(end-start,'s')
-    # # show FPS
+    # print(end-start,'s')
+    # show FPS
     fps = (1 / (end - start))
     fps_label = "Throughput: %.2f FPS" % fps
     cv2.putText(frame, fps_label, (10, 25), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
